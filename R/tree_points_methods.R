@@ -37,7 +37,7 @@ trp.voronoi = function(){
 #' @param l \code{numeric} - circle radius or square side length.
 #' @param circle \code{logical} - assign \code{TreeID}s to circular (\code{TRUE}) or squared (\code{FALSE}) patches.
 #' @export
-trp.crop = function(l = 1, circle=TRUE){
+trp.crop = function(l = 2, circle=TRUE){
   func = function(las, xymap){
     las@data$TreeID = treeIdsFromMap(las@data[,.(X,Y)] %>% as.matrix, xymap[,.(X,Y)] %>% as.matrix, xymap$TreeID %>% as.integer, l, circle)
     las %<>% setAttribute('tree_points')
